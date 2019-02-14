@@ -108,11 +108,46 @@ isPalindrome('R@c3C2r') // true, testing special chars
 //  repl.it --> https://repl.it/@bfranzen19/caesarCipher
 // caesar cipher: passing in 2 parameters string and a number, shift every letter in our given string by the given number. example: zoo keeper, 2 --> bqq mggrgt. z loops around to the beginning of the alphabet to become b, o shifts 2 letters to become q, and so on.
 
+function caesarCipher(str, num) {
+  num = num % 26
+  let lowerCaseString = str.toLowerCase()
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
+  let newString = ''
+
+  for(var i=0 ; i<lowerCaseString.length ; i++) {
+    let currentLetter = lowerCaseString[i]
+
+    if(currentLetter === ' ') {
+      newString += currentLetter
+      continue
+    }
+
+    let currentIndex = alphabet.indexOf(currentLetter);
+    let newIndex = currentIndex + num
+
+    if(newIndex > 25) newIndex = newIndex - 26
+    if(newIndex < 0) newIndex = 26 + newIndex
+
+    if(str[i] === str[i].toUpperCase()) {
+      newString += alphabet[newIndex].toUpperCase()
+    }
+    else newString += alphabet[newIndex]
+  }
+  return newString
+}
+
+/* -=-=-=- tests -=-=-=- */
+caesarCipher('Zoo Keeper', 2)
+caesarCipher('homer', -2)
+caesarCipher('homer BACON', 24)
+
+/* -=-=-=-=-=-=-=-=-=-=- */
+// repl.it --> https://repl.it/@bfranzen19/reverseWords
+//
+
 
 
 /* -=-=-=- tests -=-=-=- */
-
-
 
 
 
