@@ -143,22 +143,6 @@ caesarCipher('homer BACON', 24)
 
 /* -=-=-=-=-=-=-=-=-=-=- */
 // repl.it --> https://repl.it/@bfranzen19/reverseWords
-//
-
-
-
-/* -=-=-=- tests -=-=-=- */
-
-
-
-
-
-
-
-
-
-/* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/reverseWords
 // reverse words. given a string, reverse the letters in the words but not the order of the words in the string.
 // 'this is a string of words' --> siht  si  a  gnirts  fo  sdrow
 
