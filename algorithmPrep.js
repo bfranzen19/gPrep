@@ -167,7 +167,8 @@ reverseWords('homer bacon')
 reverseWords('this is a string of words')
 
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/
+
+// repl.it --> https://repl.it/@bfranzen19
 // reverse array in place: take an array as a parameter, reverse that array, and return the reversed array. manipulate and reverse the original array, not a new array. must be the original array. not the reverse() method either.
 
 function reverseArrayInPlace(arr) {
@@ -175,28 +176,86 @@ function reverseArrayInPlace(arr) {
     let tempVar = arr[i]
     arr[i] = arr[arr.length-1-i]
     arr[arr.length-1-i] = tempVar
+    arr[i] = arr[arr.length - 1 - i]
+    arr[arr.length - 1 -i] = tempVar
   }
   return arr
 }
 
 /* -=-=-=- tests -=-=-=- */
-
 reverseArrayInPlace([1,2,3,4])
 reverseArrayInPlace([5,4,3,2,1])
 reverseArrayInPlace([6,5,4,3,2,1])
 
-/* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/
-//
+/* -=-=-=- tests -=-=-=- */
+// repl.it --> https://repl.it/@bfranzen19
+// mean median mode: takes a number array and returns an object with 3 properties: mean, median, mode. This will use 4 different functions, the final one calling the other 3 and returning the object.
 
+function meanMedianMode(array) {
+  return {
+    mean: getMean(array),
+    median: getMedian(array),
+    mode: getMode(array)
+  }
+}
 
+function getMean(array) {
+  let sum = array.reduce((a,b) => a+ b)
+  let mean = sum / array.length
+  return mean
+}
+
+function getMedian(array) {
+  array.sort((a,b) => a-b)
+  let median
+
+  if(array.length % 2 !== 0) {
+    median = array[Math.floor(array.length/2)]
+  } else {
+    let mid1 = array[array.length / 2 - 1]
+    let mid2 = array[array.length / 2]
+    median = (mid1 + mid2) / 2
+  }
+  return median
+}
+
+function getMode(array) {
+  let modeObj = {}
+
+  array.forEach(num => {
+    if(!modeObj[num]) modeObj[num] = 0
+    modeObj[num]++
+  })
+  let maxFreq = 0
+  let mode = []
+
+  for(let num in modeObj) {
+    if(modeObj[num] > maxFreq) {
+      modes = [num]
+      console.log('modes ' + modes)
+      maxFreq = modeObj[num]
+    }
+    else if(modeObj[num] === maxFreq) modes.push(num)
+  }
+  if(modes.length === Object.keys(modeObj).length) modes = []
+  return modes
+}
 
 /* -=-=-=- tests -=-=-=- */
+meanMedianMode([1,2,3,4])
+meanMedianMode([12,2,33,4])
+meanMedianMode([5,6,7,8,9,9,8])
+meanMedianMode([1,1,1])
 
+/* -=-=-=-=-=-=-=-=-=-=- */
+// repl.it --> https://repl.it/@bfranzen19
+// two sum: returns a pair of numbers from numArray that adds up to the sum
 
+function twoSum(numArray, sum) {
 
+}
 
-
+/* -=-=-=- tests -=-=-=- */
 
 
 
