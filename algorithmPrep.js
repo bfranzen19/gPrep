@@ -1,5 +1,5 @@
 /* -=-=-=-=-=-  -=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/fizzBuzz
+// repl.it --> https://repl.it/@bfranzen19/
 // fizz buzz. multiples of 3, print fizz. multiples of 5, print buzz. multiples of both 3 and 5, print fizzBuzz
 
 function fizzBuzz(num) {
@@ -17,7 +17,7 @@ fizzBuzz(100)
 fizzBuzz(45)
 
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/harmlessRansomNote
+// repl.it --> https://repl.it/@bfranzen19/
 // harmless ransom note. practice with hash tables. create a harmless ransom note from the words contained in the magazineText string.
 
 function harmlessRansomNote(noteText, magazineText) {
@@ -62,7 +62,7 @@ harmlessRansomNote('I hate cats!!!', `Let me tell you?, i hate It whEn I can't f
 harmlessRansomNote('I hate cats, you jerk!!!', `Let me tell you?, i hate It whEn I can't find my paNtS!!!`) // false
 
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/isPalindrome
+// repl.it --> https://repl.it/@bfranzen19/
 // is it a palindrome? compare a string and return true if the string is the same backwards as forwards, and false if it is not the same backwards and forwards.
 
 // first solution:
@@ -105,7 +105,7 @@ isPalindrome('frAnzeN') // false, testing toLowerCase & false
 isPalindrome('R@c3C2r') // true, testing special chars
 
 /* -=-=-=-=-=-=-=-=-=-=- */
-//  repl.it --> https://repl.it/@bfranzen19/caesarCipher
+// repl.it --> https://repl.it/@bfranzen19/
 // caesar cipher: passing in 2 parameters string and a number, shift every letter in our given string by the given number. example: zoo keeper, 2 --> bqq mggrgt. z loops around to the beginning of the alphabet to become b, o shifts 2 letters to become q, and so on.
 
 function caesarCipher(str, num) {
@@ -142,7 +142,7 @@ caesarCipher('homer', -2)
 caesarCipher('homer BACON', 24)
 
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/reverseWords
+// repl.it --> https://repl.it/@bfranzen19/
 // reverse words. given a string, reverse the letters in the words but not the order of the words in the string.
 // 'this is a string of words' --> siht  si  a  gnirts  fo  sdrow
 
@@ -166,7 +166,87 @@ reverseWords('cat')
 reverseWords('homer bacon')
 reverseWords('this is a string of words')
 
+/* -=-=-=-=-=-=-=-=-=-=- */
+// repl.it --> https://repl.it/@bfranzen19/
+// reverse array in place: take an array as a parameter, reverse that array, and return the reversed array. manipulate and reverse the original array, not a new array. must be the original array. not the reverse() method either.
 
+function reverseArrayInPlace(arr) {
+  for(let i=0 ; i<arr.length/2 ; i++) {
+    let tempVar = arr[i]
+    arr[i] = arr[arr.length-1-i]
+    arr[arr.length-1-i] = tempVar
+  }
+  return arr
+}
+
+/* -=-=-=- tests -=-=-=- */
+
+reverseArrayInPlace([1,2,3,4])
+reverseArrayInPlace([5,4,3,2,1])
+reverseArrayInPlace([6,5,4,3,2,1])
+
+/* -=-=-=-=-=-=-=-=-=-=- */
+// repl.it --> https://repl.it/@bfranzen19/
+//
+
+
+
+/* -=-=-=- tests -=-=-=- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -=-=-=-=-=-=-=-=-=-=- */
+// Write a function that takes an array of numbers and returns the greatest difference you can get by subtracting any two of those numbers.
+
+function greatestDiff(arr) {
+    // ok solution
+    // let sorted =arr.sort((a,b) => a-b);
+  	// let max = sorted[sorted.length-1];
+  	// let min = sorted[0];
+    //
+  	// return max - min;
+
+    // best solution
+  	let max = arr[0]
+    let min = arr[0]
+
+    for(num of arr) {
+    	if(num > max) max = num;
+      	if(num < min) min = num;
+    }
+  	return max - min;
+}
+
+/* -=-=-=- tests -=-=-=- */
+greatestDiff([1,2,3,44,5,666,7,8,8,9]);
+greatestDiff([1,2,3,3,3333,3,4,56,77,8,8]);
+greatestDiff([2,33,4,444,56,6,7]);
+
+/* -=-=-=-=-=-=-=-=-=-=- */
+// repl.it --> https://repl.it/@bfranzen19/
+//
+
+
+
+/* -=-=-=- tests -=-=-=- */
 
 
 
@@ -186,7 +266,7 @@ reverseWords('this is a string of words')
 
 /* -=-=-=-=-=- template -=-=-=-=-=- */
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it -->
+// repl.it --> https://repl.it/@bfranzen19/
 //
 
 
