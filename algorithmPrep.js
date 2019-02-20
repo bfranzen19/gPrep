@@ -300,12 +300,98 @@ greatestDiff([1,2,3,3,3333,3,4,56,77,8,8]);
 greatestDiff([2,33,4,444,56,6,7]);
 
 /* -=-=-=-=-=-=-=-=-=-=- */
+// jsFiddle--> https://jsfiddle.net/bfranzen19/cx725Lfo/223/
+/* Please write a JavaScript function that takes an array of objects and returns a unique-ified version of the same array.
+
+To be clear, the goal is just to remove any duplicate objects that reference the same object in memory. The result can have multiple objects with the same properties as long as they are different objects in memory.
+
+There are multiple ways to solve this, but the goal is to create an algorithm that is as fast as possible. You may use whatever resources you want without directly consuming a third party library. */
+
+/* change the properties or values of any of these objects to test or just hit the 'Run' button in the top left */
+
+/* change the properties or values of any of these objects to test or just hit the 'Run' button in the top left*/
+let Obj = {
+	name:'bt'
+};
+
+let Obj1 = new Object();
+Obj1.name = 'bt';
+
+let Obj2 = Object.create(null);
+Obj2.name = 'bt';
+
+let Obj3 = Obj1;
+let Obj4 = Obj2;
+
+let testArr = [Obj, Obj, Obj1, Obj1, Obj2, Obj2, Obj3, Obj4, Obj3, Obj4];
+
+function uniqueRefs(arr) {
+	let resultSet = new Set();
+	let returnArr = [];
+
+	arr.forEach(element => {
+		resultSet.add(element)
+	});
+
+	/* set to array */
+	resultSet.forEach(el => returnArr.push(el));
+	JSON.stringify(returnArr);
+
+ 	for(let i=0 ; i<returnArr.length ; i++) {
+		let element = document.getElementById('arr');
+		let nextOne = document.createElement('p');
+		element.append(`  { ${Object.keys(returnArr[i])} : ${Object.values(returnArr[i])} }  `);
+	}
+
+
+	/* display on the HTML page */
+    document.getElementById('results').innerHTML = `There are ${returnArr.length} uniquely referenced objects out of ${testArr.length} original objects in the test array.`;
+
+	/* logs the resultSet and total number of unique objects in the console */
+	console.log('unique references result	-->	', returnArr, '.  total # of unique elements: ', returnArr.length, '\ntotal # of testArr elements: ', testArr.length);
+
+	/* retuns the result */
+	return returnArr;
+}
+
+uniqueRefs(testArr);
+
+/* EXPECTED OUTCOME: in the current example, Obj3 and Obj4 should be referencing the same place in memory as Obj1 and Obj2, respectively. the expected outcome of this function should be that Obj, Obj1, and Obj2 should be included in resultSet for a total of 3 entries within the set. these are the unique reference objects.
+the outcome should be visible both in the console and on the HTML page. */
+
+/*
+// HTML
+<!DOCTYPE html>
+<html>
+<head>
+	<body>
+		<div>
+			<p id="results">
+			</p>
+			<p id="arr">
+				The following objects from the test array are unique:
+			</p>
+		</div>
+	</body>
+</head>
+</html>
+
+// CSS
+p {
+	text-align: center;
+	margin-top: 3rem;
+}
+*/
+
+/* -=-=-=-=-=-=-=-=-=-=- */
 // repl.it --> https://repl.it/@bfranzen19/
 //
 
 
 
 /* -=-=-=- tests -=-=-=- */
+
+
 
 
 
