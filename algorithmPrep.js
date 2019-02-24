@@ -1,5 +1,5 @@
 /* -=-=-=-=-=-  -=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/
+// repl.it --> https://repl.it/@bfranzen19/algorithms
 // fizz buzz. multiples of 3, print fizz. multiples of 5, print buzz. multiples of both 3 and 5, print fizzBuzz
 
 function fizzBuzz(num) {
@@ -17,7 +17,7 @@ fizzBuzz(100)
 fizzBuzz(45)
 
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/
+//  --> https://repl.it/@bfranzen19/algorithms
 // harmless ransom note. practice with hash tables. create a harmless ransom note from the words contained in the magazineText string.
 
 function harmlessRansomNote(noteText, magazineText) {
@@ -62,7 +62,7 @@ harmlessRansomNote('I hate cats!!!', `Let me tell you?, i hate It whEn I can't f
 harmlessRansomNote('I hate cats, you jerk!!!', `Let me tell you?, i hate It whEn I can't find my paNtS!!!`) // false
 
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/
+// repl.it --> https://repl.it/@bfranzen19/algorithms
 // is it a palindrome? compare a string and return true if the string is the same backwards as forwards, and false if it is not the same backwards and forwards.
 
 // first solution:
@@ -105,7 +105,7 @@ isPalindrome('frAnzeN') // false, testing toLowerCase & false
 isPalindrome('R@c3C2r') // true, testing special chars
 
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/
+// repl.it --> https://repl.it/@bfranzen19/algorithms
 // caesar cipher: passing in 2 parameters string and a number, shift every letter in our given string by the given number. example: zoo keeper, 2 --> bqq mggrgt. z loops around to the beginning of the alphabet to become b, o shifts 2 letters to become q, and so on.
 
 function caesarCipher(str, num) {
@@ -142,7 +142,7 @@ caesarCipher('homer', -2)
 caesarCipher('homer BACON', 24)
 
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/
+// repl.it --> https://repl.it/@bfranzen19/algorithms
 // reverse words. given a string, reverse the letters in the words but not the order of the words in the string.
 // 'this is a string of words' --> siht  si  a  gnirts  fo  sdrow
 
@@ -168,7 +168,7 @@ reverseWords('this is a string of words')
 
 /* -=-=-=-=-=-=-=-=-=-=- */
 
-// repl.it --> https://repl.it/@bfranzen19
+// repl.it --> https://repl.it/@bfranzen19/algorithms
 // reverse array in place: take an array as a parameter, reverse that array, and return the reversed array. manipulate and reverse the original array, not a new array. must be the original array. not the reverse() method either.
 
 function reverseArrayInPlace(arr) {
@@ -188,7 +188,7 @@ reverseArrayInPlace([5,4,3,2,1])
 reverseArrayInPlace([6,5,4,3,2,1])
 
 /* -=-=-=- tests -=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19
+// repl.it --> https://repl.it/@bfranzen19/algorithms
 // mean median mode: takes a number array and returns an object with 3 properties: mean, median, mode. This will use 4 different functions, the final one calling the other 3 and returning the object.
 
 function meanMedianMode(array) {
@@ -248,31 +248,7 @@ meanMedianMode([5,6,7,8,9,9,8])
 meanMedianMode([1,1,1])
 
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19
-// two sum: returns a pair of numbers from numArray that adds up to the sum
-
-function twoSum(numArray, sum) {
-
-}
-
-/* -=-=-=- tests -=-=-=- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* -=-=-=-=-=-=-=-=-=-=- */
+// https://repl.it/@bfranzen19/algorithms
 // Write a function that takes an array of numbers and returns the greatest difference you can get by subtracting any two of those numbers.
 
 function greatestDiff(arr) {
@@ -384,7 +360,7 @@ p {
 */
 
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/
+// repl.it --> https://repl.it/@bfranzen19/algorithms
 // two sum: returns a pair of numbers from numArray that adds up to the sum. result should be an array of arrays. any number in numArray can be used in multiple pairs.
 
 function twoSum(numArray, sum) {
@@ -407,8 +383,44 @@ function twoSum(numArray, sum) {
 twoSum([1,6,4,5,3,3], 7);	// [[6,1], [3,4], [3,4]]
 
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/
-//
+// repl.it --> https://repl.it/@bfranzen19/algorithms
+// binary search: searches through the array for a given key. if the key is present in the array, return true. If the key is not present in the array, return false.
+
+function binarySearch(numArr, key){
+  let midIndex = Math.floor(numArr.length / 2);
+  let midElem = numArr[midIndex];
+
+  if(midElem === key) return true;
+  else if(midElem < key && numArr.length > 1) {
+    return binarySearch(numArr.splice(midIndex, numArr.length), key);
+  } else if(midElem > key && numArr.length > 1) {
+    return binarySearch(numArr.splice(0, midIndex), key);
+  }
+  else return false;
+}
+
+/* -=-=-=- tests -=-=-=- */
+binarySearch([5,7,12,16,36,39,42,56,71], 56); 	// true
+binarySearch([5,7,12,16,36,39,42,56,71], 24); 	// false
+
+/* -=-=-=-=-=-=-=-=-=-=- */
+// repl.it --> https://repl.it/@bfranzen19/algorithms
+// fibonacci sequence --> inefficient over ~30. exponential runtime.
+
+function fibonacci(position) {
+  if(position < 3) return 1;
+  else return fibonacci(position-1) + fibonacci(position-2);
+}
+
+/* -=-=-=- tests -=-=-=- */
+fibonacci(4);	// returns 3
+fibonacci(2); 	// returns 1
+fibonacci(12); 	// returns 144
+fibonacci(9);	// returns 34
+
+/* -=-=-=-=-=-=-=-=-=-=- */
+// repl.it --> https://repl.it/@bfranzen19/algorithms
+// efficient fibonacci sequence using memoization
 
 
 
@@ -425,14 +437,9 @@ twoSum([1,6,4,5,3,3], 7);	// [[6,1], [3,4], [3,4]]
 
 
 
-
-
-
-
-
 /* -=-=-=-=-=- template -=-=-=-=-=- */
 /* -=-=-=-=-=-=-=-=-=-=- */
-// repl.it --> https://repl.it/@bfranzen19/
+// repl.it --> https://repl.it/@bfranzen19/algorithms
 //
 
 
