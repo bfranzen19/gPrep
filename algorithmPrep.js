@@ -422,12 +422,33 @@ fibonacci(9);	// returns 34
 // repl.it --> https://repl.it/@bfranzen19/algorithms
 // efficient fibonacci sequence using memoization
 
+function fibMemo(index, cache) {
+  cache = cache || [];
+
+  if(cache[index]) return cache[index];
+  else {
+    if(index < 3) return 1;
+    else {
+      cache[index] = fibMemo(index - 1, cache) + fibMemo(index - 2, cache);
+    }
+  }
+  return cache[index];
+}
+
+/* -=-=-=- tests -=-=-=- */
+fibMemo(20);	// 6765
+fibMemo(4);	  // 3
+fibMemo(2);	  // 1
+fibMemo(12);	// 144
+fibMemo(50);	// 12586269025
+
+/* -=-=-=-=-=-=-=-=-=-=- */
+// repl.it --> https://repl.it/@bfranzen19/algorithms
+//
+
 
 
 /* -=-=-=- tests -=-=-=- */
-
-
-
 
 
 
