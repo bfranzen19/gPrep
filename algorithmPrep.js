@@ -474,6 +474,35 @@ sieveOfEratosthenes(10); // [2,3,5,7]
 sieveOfEratosthenes(20); // [2,3,5,7,11,13,17,19]
 sieveOfEratosthenes(1);  // []
 
+/* -=-=-=-=-=-=-=-=-=-=- */
+// repl.it --> https://repl.it/@bfranzen19/algorithms
+// bubble sort
+
+function bubbleSort(array) {
+  for(let i=array.length ; i>0 ; i--) {
+    for(let j=0 ; j<i ; j++) {
+      if(array[j] > array[j+1]) {
+        let temp = array[j];
+        array[j] = array[j+1];
+        array[j+1] = temp;
+      }
+    }
+  }
+  return array;
+}
+
+/* -=-=-=- tests -=-=-=- */
+bubbleSort([5, 3, 8, 2, 1, 4]);  // [ 1, 2, 3, 4, 5, 8 ]
+bubbleSort([15, 3, 28, 32, 1, 44]);  // [ 1, 3, 15, 28, 32, 44 ]
+bubbleSort([20, 20, 31, 56, 1, 12, 12]);  // [ 1, 12, 12, 20, 20, 31, 56 ]
+bubbleSort([3, -9, -1, 8]);  // [ -9, -1, 3, 8 ]
+
+
+
+
+
+
+
 
 
 
