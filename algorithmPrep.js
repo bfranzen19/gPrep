@@ -444,12 +444,35 @@ fibMemo(50);	// 12586269025
 
 /* -=-=-=-=-=-=-=-=-=-=- */
 // repl.it --> https://repl.it/@bfranzen19/algorithms
-//
+// sieve of eratosthenes --> find all prime numbers up to a given number. returns an array of all primes up to the given number.
 
+function sieveOfEratosthenes(n) {
+  let primes = [];
+  let result = [];
 
+  for(let i=0 ; i<=n ; i++) {
+    primes[i] = true;
+  }
+
+  primes[0] = false;
+  primes[1] = false;
+
+  for(let i=2 ; i<=Math.sqrt(n) ; i++) {
+    for(let j=2; i*j <=n ; j++) {
+      primes[i*j] = false;
+    }
+  }
+
+  for(let i=0 ; i<primes.length ; i++) {
+    if(primes[i]) result.push(i);
+  }
+  return result;
+}
 
 /* -=-=-=- tests -=-=-=- */
-
+sieveOfEratosthenes(10); // [2,3,5,7]
+sieveOfEratosthenes(20); // [2,3,5,7,11,13,17,19]
+sieveOfEratosthenes(1);  // []
 
 
 
