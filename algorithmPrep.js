@@ -501,10 +501,34 @@ bubbleSort([3, -9, -1, 8]);  // [ -9, -1, 3, 8 ]
 // repl.it --> https://repl.it/@bfranzen19/algorithms
 // merge sort
 
+function mergeSort(arr) {
+  if(arr.length < 2) return arr;
+  let middleIndex = Math.floor(arr.length / 2);
+  let firstHalf = arr.slice(0,middleIndex);
+  let secondHalf = arr.slice(middleIndex);
 
+  return merge(mergeSort(firstHalf), mergeSort(secondHalf));
+}
+
+function merge(array1, array2) {
+  let result = [];
+  while(array1.length && array2.length) {
+    let minElem;
+    if(array1[0] < array2[0]) minElem = array1.shift();
+    else minElem = array2.shift();
+    result.push(minElem);
+  }
+
+  if(array1.length) result = result.concat(array1);
+  else result = result.concat(array2);
+
+  return result;
+}
 
 /* -=-=-=- tests -=-=-=- */
-
+mergeSort([11,4,7,8,5,3,2,4]);
+mergeSort([1,4,54,5,6,8,4,19,24]);
+mergeSort([12,24,224,25,6,8,4,9,4]);
 
 
 
